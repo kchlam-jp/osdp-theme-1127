@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:body>
+    <f:view contracts="#{resourceBundle['osdp.theme']}">
+      <ui:composition template="/template/template.xhtml">
+        <ui:param name="title" value="#{resourceBundle['idp.logout.title']}"/>
+        <ui:define name="content">
+          <div class="idp-logout-content">
+            <h:outputText value="#{resourceBundle['idp.logout.attempt']}" escape="false"/>
+
+            <c:if test="#{not empty logoutContext and not logoutContext.sessionMap.isEmpty()}">
+              <ol class="idp-logout-result-sp-list">
+                <c:forEach var="sp" items="#{logoutContext.sessionMap.keySet()}">
+                  <c:set var="rpCtx" value="#{multiRPContext.getRelyingPartyContextById(sp)}"/>
+                  <c:if test="#{not empty rpCtx}">
+                    <c:set var="rpUIContext" value="#{rpCtx.getSubcontext('net.shibboleth.idp.ui.context.RelyingPartyUIContext')}"/>
+                  </c:if>
+                  <c:choose>
+                    <c:when test="#{not empty rpUIContext and not empty rpUIContext.serviceName}">
+                      <li id="result_#{codecUtil.hex(sp.bytes)}" title="Logout pending" class="idp-logout-result-sp-list-item">#{rpUIContext.serviceName}</li>
+                    </c:when>
+                    <c:otherwise>
+                      <li id="result_#{codecUtil.hex(sp.bytes)}" title="Logout pending" class="idp-logout-result-sp-list-item">#{sp}</li>
+                    </c:otherwise>
+                  </c:choose>
+                </c:forEach>
+              </ol>
+
+              <script src="#{request.contextPath}/js/#{resourceBundle['jquery.js.name']}"></script>
+              <script type="text/javascript">
+                <!--//--><![CDATA[//><!--
+                function check_status() {
+                  // Check every property of the object.
+                  for (flag in this) {
+                    if (!this[flag]) {
+                      return false;
+                    }
+                  }
+                  return true;
+                }
+
+                // Associative array keyed by SP name. Entries are an array keyed by session key.
+                var sessionTracker = new Object();
+                //--><!]]>
+                <c:forEach var="sp" items="#{logoutContext.sessionMap.keySet()}">
+                  <c:set var="tmpStr" value="#{'sessionTracker[\'result_'.concat(codecUtil.hex(sp.bytes)).concat('\'] = spTracker;')}"/>
+                  <!--//--><![CDATA[//><!--
+                  spTracker = new Object();
+                  spTracker.status = check_status;
+                  //--><!]]><h:outputText value="&lt;!--//--&gt;&lt;![CDATA[//&gt;&lt;!--&#10;" escape="false"/>
+                  <h:outputText value="#{tmpStr}" escape="false"/>
+                  <h:outputText value="&#10;//--&gt;&lt;!]]&gt;" escape="false"/>
+                </c:forEach>
+
+                <!--//--><![CDATA[//><!--
+                function onLoad(src, target, trackerId, sessionKey) {
+                  try {
+                    var content = src.contents().text();
+                    if (content && jQuery.parseJSON(content).result == "Success") {
+                      sessionTracker[trackerId]['_' + sessionKey] = true;
+                    } else {
+                      sessionTracker[trackerId]['_' + sessionKey] = false;
+                    }
+                  } catch (e) {
+                    sessionTracker[trackerId]['_' + sessionKey] = false;
+                  }
+                  target.removeClass("idp-logout-success idp-logout-failure");
+                  if (sessionTracker[trackerId].status()) {
+                    target.addClass("idp-logout-success");
+                    target.prop("title", "Successful logout");
+                  } else {
+                    target.addClass("idp-logout-failure");
+                    target.prop("title", "Failed logout")
+                  }
+                  if (typeof(Storage) !== "undefined" ) {
+                    var url = sessionStorage.getItem(sessionKey);
+                    if (url != null) {
+                      sessionStorage.removeItem(sessionKey);
+                      setTimeout(function() { src.prop("src", url) }, 1500);
+                    }
+                  }
+                }
+                //--><!]]>
+              </script>
+
+              <c:forEach var="entry" items="#{logoutContext.keyedSessionMap.entrySet()}">
+                <c:if test="#{not empty flowSelector.apply(entry.value)}">
+                  <c:set var="trackerId" value="result_#{codecUtil.hex(entry.value.id.bytes)}"/>
+                  <iframe id="sender_#{codecUtil.hex(entry.key.bytes)}"
+                    src="#{request.contextPath}/profile/PropagateLogout?SessionKey=#{urlEncoder.encode(entry.key)}"
+                    style="display:none" onload="onLoad($(this), $('##{trackerId}'), '#{trackerId}', '#{entry.key}')"></iframe>
+                </c:if>
+              </c:forEach>
+            </c:if>
+
+            <!-- If SAML logout, complete the flow by adding a hidden iframe. -->
+            <c:if test="#{profileRequestContext.profileId.contains('saml2/logout')}">
+              <iframe style="display:none" src="#{flowExecutionUrl}&amp;_eventId=proceed&amp;javax.faces.ViewState=dummy"></iframe>
+            </c:if>
+          </div>
+        </ui:define>
+      </ui:composition>
+    </f:view>
+  </h:body>
+</html>

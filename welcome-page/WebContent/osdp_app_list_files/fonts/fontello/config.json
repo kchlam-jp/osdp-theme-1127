@@ -1,0 +1,204 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "12f4ece88e46abd864e40b35e05b11cd",
+      "css": "ok",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c709da589c923ba3c2ad48d9fc563e93",
+      "css": "cancel",
+      "code": 59393,
+      "src": "entypo"
+    },
+    {
+      "uid": "3c2d567624b6f994b637ba95a78078ee",
+      "css": "down-dir",
+      "code": 59394,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M571 393Q571 407 561 418L311 668Q300 679 286 679T261 668L11 418Q0 407 0 393T11 368 36 357H536Q550 357 561 368T571 393Z",
+        "width": 571.4
+      },
+      "search": [
+        "down-dir"
+      ]
+    },
+    {
+      "uid": "13e3dc11434e39cdaa72373bad7d40c4",
+      "css": "up-dir",
+      "code": 59395,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M571 679Q571 693 561 704T536 714H36Q21 714 11 704T0 679 11 653L261 403Q271 393 286 393T311 403L561 653Q571 664 571 679Z",
+        "width": 571.4
+      },
+      "search": [
+        "up-dir"
+      ]
+    },
+    {
+      "uid": "0aafec70ccab151e2466055df5cafed5",
+      "css": "left-dir",
+      "code": 59396,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M357 250V750Q357 764 347 775T321 786 296 775L46 525Q36 514 36 500T46 475L296 225Q307 214 321 214T347 225 357 250Z",
+        "width": 357.1
+      },
+      "search": [
+        "left-dir"
+      ]
+    },
+    {
+      "uid": "a78bf1edb4dff60d394b5abb898c7e2a",
+      "css": "right-dir",
+      "code": 59397,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M321 500Q321 514 311 525L61 775Q50 786 36 786T11 775 0 750V250Q0 235 11 225T36 214 61 225L311 475Q321 485 321 500Z",
+        "width": 357.1
+      },
+      "search": [
+        "right-dir"
+      ]
+    },
+    {
+      "uid": "1544c59a0b72f1625ec26767ead17efc",
+      "css": "fast-fw",
+      "code": 59398,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M25 921Q15 932 7 929T0 911V89Q0 75 7 71T25 79L421 475Q426 479 429 485V89Q429 75 436 71T454 79L850 475Q861 485 861 500T850 525L454 921Q443 932 436 929T429 911V514Q426 520 421 525Z",
+        "width": 928.6
+      },
+      "search": [
+        "fast-fw"
+      ]
+    },
+    {
+      "uid": "955afde50e2666d281b3dac28fea8fbd",
+      "css": "fast-bw",
+      "code": 59399,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M904 79Q914 68 921 71T929 89V911Q929 925 921 929T904 921L507 525Q503 520 500 514V911Q500 925 493 929T475 921L79 525Q68 514 68 500T79 475L475 79Q486 68 493 71T500 89V485Q503 479 507 475Z",
+        "width": 928.6
+      },
+      "search": [
+        "fast-bw"
+      ]
+    },
+    {
+      "uid": "90c9ee24ead26f2e1d95d4209cce149a",
+      "css": "back",
+      "code": 59400,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M1002 567C897 462 765 390 620 358 528 339 434 336 342 349V114L0 455 342 798V479C547 442 762 508 912 658 1034 780 1101 942 1101 1115H1229C1229 908 1148 714 1002 567Z",
+        "width": 1229
+      },
+      "search": [
+        "back"
+      ]
+    },
+    {
+      "uid": "e730895e0f8b319ab014b70556ae183f",
+      "css": "plus",
+      "code": 59401,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M500 0C225 0 0 225 0 500 0 775 225 1000 500 1000S1000 775 1000 500C1000 225 775 0 500 0ZM750 550H550V750H450V550H250V450H450V250H550V450H750V550Z",
+        "width": 1000
+      },
+      "search": [
+        "plus"
+      ]
+    },
+    {
+      "uid": "d4bf1c70a48c68e72e89cbb3cf6ffcdb",
+      "css": "angle-left",
+      "code": 61700,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M350 304Q350 311 344 316L125 536 344 755Q350 761 350 768T344 781L316 809Q311 814 304 814T291 809L31 548Q25 543 25 536T31 523L291 263Q296 257 304 257T316 263L344 291Q350 296 350 304Z",
+        "width": 357.1
+      },
+      "search": [
+        "angle-left"
+      ]
+    },
+    {
+      "uid": "383f9d256b044898d49406a5fd4f5e35",
+      "css": "angle-right",
+      "code": 61701,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M332 536Q332 543 327 548L66 809Q61 814 54 814T41 809L13 781Q7 775 7 768T13 755L232 536 13 316Q7 311 7 304T13 291L41 263Q46 257 54 257T66 263L327 523Q332 528 332 536Z",
+        "width": 357.1
+      },
+      "search": [
+        "angle-right"
+      ]
+    },
+    {
+      "uid": "2712a5d5b78ffd0e18e20b8f1e96271d",
+      "css": "angle-down",
+      "code": 61703,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M600 411Q600 418 594 423L334 684Q329 689 321 689T309 684L49 423Q43 418 43 411T49 398L77 370Q82 364 89 364T102 370L321 589 541 370Q546 364 554 364T566 370L594 398Q600 403 600 411Z",
+        "width": 642.9
+      },
+      "search": [
+        "angle-down"
+      ]
+    },
+    {
+      "uid": "3146d45b8bd652a0c3f5ba09b83279de",
+      "css": "angle-up",
+      "code": 61702,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M600 661Q600 668 594 673L566 701Q561 707 554 707T541 701L321 482 102 701Q97 707 89 707T77 701L49 673Q43 668 43 661T49 648L309 388Q314 382 321 382T334 388L594 648Q600 653 600 661Z",
+        "width": 642.9
+      },
+      "search": [
+        "angle-up"
+      ]
+    },
+    {
+      "uid": "5d2cf809a15ba919968ebe8ef4bcb9f4",
+      "css": "search",
+      "code": 59404,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M714.3 628.6H668.5L651.5 611.3C708.7 548.6 742.7 462.9 742.7 371.3 742.8 165.7 577 0 371.3 0 165.7 0 0 165.7 0 371.3 0 577 165.7 742.8 371.3 742.8 462.9 742.8 548.6 708.7 611.3 651.5L628.6 668.5V714.3L914.3 1000 1000 914.3 714.3 628.6ZM371.3 628.6C228.5 628.6 114.4 514.2 114.4 371.3 114.4 228.5 228.5 114.4 371.3 114.4 514.2 114.4 628.6 228.5 628.6 371.3 628.6 514.2 514.2 628.6 371.3 628.6L371.3 628.6ZM371.3 628.6",
+        "width": 1000
+      },
+      "search": [
+        "search"
+      ]
+    }
+  ]
+}

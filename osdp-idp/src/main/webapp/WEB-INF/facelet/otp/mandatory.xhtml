@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:body>
+    <f:view contracts="#{resourceBundle['osdp.theme']}">
+      <ui:composition template="/template/template.xhtml">
+        <ui:param name="title" value="#{resourceBundle['otp.login.title']}"/>
+        <ui:define name="content">
+          <div class="idp-otp-content">
+            <c:if test="#{not empty eventContext and not empty eventContext.event}">
+              <c:set var="message" value="#{resourceBundle['otp.email.'.concat(eventContext.event).concat('.message')]}"/>
+            </c:if>
+
+            <c:if test="#{not empty message}">
+              <div class="idp-login-err-msg">
+                <h:outputText value="#{message}" escape="false"/>
+              </div>
+            </c:if>
+
+            <c:set var="serviceName" value="#{rpUIContext.serviceName}"/>
+            <c:if test="#{not empty serviceName and not profileRequestContext.getSubcontext('net.shibboleth.idp.profile.context.RelyingPartyContext').getRelyingPartyId().contains(serviceName)}">
+              <div class="idp-login-service-legend">
+                <h:outputText value="#{resourceBundle['otp.login.login.to.prefix']}" escape="false"/>
+                <span class="idp-login-service-name">#{serviceName}</span>
+                <h:outputText value="#{resourceBundle['otp.login.login.to.suffix']}" escape="false"/>
+              </div>
+            </c:if>
+          </div>
+        </ui:define>
+      </ui:composition>
+    </f:view>
+  </h:body>
+</html>

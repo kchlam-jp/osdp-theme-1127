@@ -1,0 +1,59 @@
+@import "variables";
+
+@font-face {
+  font-family: 'ha-pass';
+  src:  url('#{$icomoon-font-path}/ha-pass.eot?80suuf');
+  src:  url('#{$icomoon-font-path}/ha-pass.eot?80suuf#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/ha-pass.ttf?80suuf') format('truetype'),
+    url('#{$icomoon-font-path}/ha-pass.woff?80suuf') format('woff'),
+    url('#{$icomoon-font-path}/ha-pass.svg?80suuf#ha-pass') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ha-pass' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-sort-down {
+  &:before {
+    content: $ico-sort-down;
+  }
+}
+.ico-sort-up {
+  &:before {
+    content: $ico-sort-up;
+  }
+}
+.ico-sort {
+  &:before {
+    content: $ico-sort;
+  }
+}
+.ico-doc {
+  &:before {
+    content: $ico-doc;
+  }
+}
+.ico-info {
+  &:before {
+    content: $ico-info;
+  }
+}
+.ico-alarm {
+  &:before {
+    content: $ico-alarm;
+  }
+}
+

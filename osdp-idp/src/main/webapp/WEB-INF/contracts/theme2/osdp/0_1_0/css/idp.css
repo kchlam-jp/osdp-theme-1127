@@ -1,0 +1,125 @@
+.idp-login-content,
+.idp-logout-content,
+.idp-otp-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.idp-login-err-msg {
+  color: rgb(182, 22, 1);
+  font-size: 1.2em;
+  margin: 12px 0 20px;
+}
+.idp-login-service-legend {
+  background-color: rgb(200, 197, 181);
+  background-image: linear-gradient(rgb(200, 197, 181), rgb(230, 226, 211));
+  border-radius: 8px;
+  color: #3F3430;
+  display: inline-block;
+  font-size: 130%;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  order: -1;
+  padding: 5px 15px 5px 15px;
+  width: 100%;
+}
+.idp-login-service-name {
+  font-style: italic;
+}
+.idp-login-form-label,
+.idp-otp-email-form-label,
+.idp-otp-login-form-label {
+  display: inline-block;
+  font-size: 130%;
+  padding-left: 15px;
+  width: 100%;
+  margin: 10px 0 5px;
+}
+.idp-otp-login-form-input:nth-of-type(2) {
+  color: #f00;
+  padding-left: 15px;
+}
+.idp-otp-login-form-input > a {
+  display: inline-block;
+  margin: 5px auto;
+}
+.idp-login-form-input > input::placeholder,
+.idp-otp-email-form-input > input::placeholder,
+.idp-otp-login-form-input > input::placeholder {
+  color: #fff;
+}
+.idp-login-form-input > input::-webkit-input-placeholder,
+.idp-otp-email-form-input > input::-webkit-input-placeholder,
+.idp-otp-login-form-input > input::-webkit-input-placeholder {
+  color: #fff;
+}
+.idp-login-form-input > input::-moz-placeholder,
+.idp-otp-email-form-input > input::-moz-placeholder,
+.idp-otp-login-form-input > input::-moz-placeholder {
+  color: #fff;
+}
+.idp-login-form-input > input:-ms-input-placeholder,
+.idp-otp-email-form-input > input:-ms-input-placeholder,
+.idp-otp-login-form-input > input:-ms-input-placeholder {
+  color: #fff;
+}
+.idp-login-form-input > input:-moz-placeholder,
+.idp-otp-email-form-input > input:-moz-placeholder,
+.idp-otp-login-form-input > input:-moz-placeholder {
+  color: #fff;
+}
+#login-content-container .idp-login-button > input[type='button'],
+#login-content-container .idp-otp-email-button > input[type='button'],
+#login-content-container .idp-otp-login-button > input[type='button'],
+#login-content-container #inputForm\:propagate_yes,
+#login-content-container #inputForm\:propagate_no {
+  background: transparent url("#{resource['osdp:img/btn_02_all.png']}");
+  background-size: 180px 76px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  height: 38px;
+  margin: 5px 0;
+  padding: 5px 0;
+  text-align: center;
+  width:180px;
+}
+#login-content-container .idp-login-button > input[type='button'],
+#login-content-container .idp-otp-login-button > input[type='button'],
+#login-content-container #inputForm\:propagate_yes,
+#login-content-container #inputForm\:propagate_no {
+  font-size: 100%;
+}
+#login-content-container .idp-otp-email-button > input[type='button'] {
+  font-size: 80%;
+}
+#login-content-container #inputForm\:propagate_no {
+  margin-left: 2%;
+}
+#login-content-container .idp-login-button > input[type='button']:hover,
+#login-content-container .idp-otp-email-button > input[type='button']:hover,
+#login-content-container .idp-otp-login-button > input[type='button']:hover,
+#inputForm\:propagate_yes:hover,
+#inputForm\:propagate_no:hover {
+  background-position-y: -38px;
+}
+.idp-logout-sp-list {
+  list-style-position: inside;
+}
+.idp-logout-sp-list-item {
+}
+.idp-logout-result-sp-list {
+  margin-top: 12px;
+  list-style: none inside;
+}
+.idp-logout-result-sp-list-item {
+  line-height: 36px;
+  padding-left: 36px;
+}
+.idp-logout-success {
+  background: url(../../../images/success-32x32.png) no-repeat left center;
+}
+.idp-logout-failure {
+  background: url(../../../images/failure-32x32.png) no-repeat left center;
+}

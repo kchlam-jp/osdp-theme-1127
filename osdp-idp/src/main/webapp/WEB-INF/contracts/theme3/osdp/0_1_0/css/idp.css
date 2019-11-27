@@ -1,0 +1,119 @@
+.idp-login-content,
+.idp-logout-content,
+.idp-otp-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.idp-login-err-msg {
+  color: rgb(182, 22, 1);
+  font-size: 1.2em;
+  margin: 12px 0 20px;
+}
+.idp-login-service-legend {
+  display: block;
+  font-size: 2em;
+  font-weight: blod;
+  margin-bottom: 10px;
+  order: -1;
+  padding-bottom: 35px;
+  text-align: center;
+  width: 100%;
+}
+.idp-login-service-name {
+  font-style: italic;
+}
+.idp-login-form-label,
+.idp-otp-login-form-label,
+.idp-otp-email-form-label {
+  display: none;
+}
+.idp-otp-login-form-label:first-of-type {
+  display: inline-block;
+  font-size: 130%;
+  margin-right:0;
+  padding-right: 0;
+}
+.idp-otp-login-form-label:first-of-type::after {
+  content: ":";
+  display: inline-block;
+  font-size: 130%;
+  margin-left:0;
+  padding-left: 0;
+}
+.idp-otp-login-form-input:nth-of-type(2) {
+  color: #f00;
+  display: inline;
+  font-size: 130%;
+  padding-left: 5px;
+}
+.idp-otp-login-form-input > a {
+  display: inline-block;
+  margin: 5px auto;
+}
+.idp-login-form-input,
+.idp-otp-email-form-input,
+.idp-otp-login-form-input {
+  background-color: #fff;
+  margin-bottom: 25px;
+  width: 100%;
+}
+.idp-login-button,
+.idp-otp-email-button,
+.idp-otp-login-button {
+  align-items: center;
+  border-radius: 25px;
+  display: flex;
+  font-size: 14px;
+  height: 50px;
+  justify-content: center;
+  min-width: 160px;
+}
+.idp-login-button > input[type='button'],
+.idp-otp-email-button > input[type='button'],
+.idp-otp-login-button > input[type='button'],
+#inputForm\:propagate_yes,
+#inputForm\:propagate_no {
+  background-color: #bd59d4;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.idp-login-button > input[type='button']:hover,
+.idp-otp-email-button > input[type='button']:hover,
+.idp-otp-login-button > input[type='button']:hover,
+#inputForm\:propagate_yes:hover,
+#inputForm\:propagate_no:hover {
+  background-color: #4b2354;
+  box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
+}
+#inputForm\:propagate_yes,
+#inputForm\:propagate_no {
+  min-width: 120px;
+}
+#inputForm\:propagate_no {
+  margin-left: 2%;
+}
+.idp-login-forget-password {
+  font-size: 120%;
+  margin-top: 10px;
+}
+.idp-logout-sp-list {
+  list-style-position: inside;
+}
+.idp-logout-sp-list-item {
+}
+.idp-logout-result-sp-list {
+  margin-top: 12px;
+  list-style: none inside;
+}
+.idp-logout-result-sp-list-item {
+  line-height: 36px;
+  padding-left: 36px;
+}
+.idp-logout-success {
+  background: url(../../../images/success-32x32.png) no-repeat left center;
+}
+.idp-logout-failure {
+  background: url(../../../images/failure-32x32.png) no-repeat left center;
+}

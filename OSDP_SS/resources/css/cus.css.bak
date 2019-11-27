@@ -1,0 +1,219 @@
+.row-padding {
+	padding-bottom:30px;
+}
+
+.container .caption{
+	margin-bottom: 18px;
+    padding: 7px 12px;
+    color: #3d53b3;
+    font-size: 1rem;
+    font-family: "robotomedium", 'Helvetica','Arial','sans-serif','Microsoft JhengHei','MingLiU';
+    background-color: #e9ecfb;
+}
+
+.modal-dialog {
+    width: 1000px;
+    margin: 30px auto;
+}
+
+.ui-menu .ui-menu-item a {
+  font-size: 12px;
+}
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1510 !important;
+  float: left;
+  display: none;
+  min-width: 160px;
+  width: 160px;
+  padding: 4px 0;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+}
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.ui-state-hover, .ui-state-active {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #0088cc;
+      border-radius: 0px;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      background-image: none;
+}
+#modalIns{
+    width: 500px;
+}
+
+/*Assign Contractor*/
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }
+  
+.information_tilte {
+    color: #696969;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-family: "robotomedium", 'Helvetica','Arial','sans-serif','Microsoft JhengHei','MingLiU';
+    font-weight: normal;
+    background-color: transparent;
+    float: left;
+    padding-right: 10px;
+}
+
+.BS-container {
+    margin-bottom: 55px;
+    border: 1px solid;
+        padding: 20px;
+}
+
+.information_row_padding{
+	padding: 4px 10px;
+}
+
+
+
+/**user nomination*/
+ul.item_container {
+    list-style-type: none;
+    border: 1px solid;
+    height: 160px;
+    padding: 10px 20px;
+}
+
+li.active {
+     background-color: #94aaff; 
+}
+
+.icon-go-container{
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: #5f79e0;
+    font-size: 1.125em;
+    text-align: center;
+    line-height: 38px;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1);
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding-left: 7px;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+ul.item_container_big {
+    list-style-type: none;
+    border: 1px solid;
+    min-height: 350px;
+    padding: 10px 20px;
+}
+
+ul.item_container_small-1 ,  ul.item_container_small-2  , ul.item_container_small-3 {
+    list-style-type: none;
+    border: 1px solid;
+    min-height: 90px;
+    padding: 10px 20px;
+}
+
+.icon-go-container-small-1 , .icon-go-container-small-2 , .icon-go-container-small-3{
+	 border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: #5f79e0;
+    font-size: 1.125em;
+    text-align: center;
+    line-height: 38px;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1);
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding-left: 7px;
+    cursor: pointer;
+    margin: 18px auto;
+}
+
+
+
+
+/**progress entry*/
+	.graph_floor_y {
+	    height: 60px;
+	    border-right: 1px solid;
+   		text-align: right;
+	}
+	
+	.graph_floor_y_last {height: 60px;text-align: right;}
+	
+	.graph_flat_x {
+	    border: 1px #f5f5f5 solid;
+	    height: 60px;
+	    width: 12.5%;
+	    float: left;
+	}
+	
+	.graph_flat_x.last {
+	    border-bottom: 1px solid;
+	}
+	
+	.graph_flat_x_desc{
+		height: 60px;
+	    width: 12.5%;
+	    float: left;
+		border: none;
+	    text-align: center;
+	}
+	
+	.graph_flat_x.active{
+		background-color: blue;
+	}
+	.no-padding{
+		padding:0px;s
+	}
+
+	.select-custom{
+		display:block;
+		float: left;
+	}
+	
+	

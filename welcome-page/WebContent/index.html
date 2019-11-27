@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>OSDP Applications List</title>
+        <link rel="stylesheet" type="text/css" href="osdp_app_list_files/main.css">
+        <link rel="stylesheet" type="text/css" href="osdp_app_list_files/leftmenu.css">
+		<link rel="stylesheet" href="osdp_app_list_files/style.css">
+		<link rel="stylesheet" href="osdp_app_list_files/jquery-ui.css">
+		<link rel="stylesheet" href="osdp_app_list_files/cus.css">
+		
+		<script src="osdp_app_list_files/jquery-3.3.1.min.js"></script>
+		
+		<script type="text/javascript">
+		var protocol = window.location.protocol;
+		var host = window.location.host;
+		var pathname = window.location.pathname;
+		var search = window.location.search;
+		
+		$(document).ready(function(){
+					
+			if (host.includes("ccgo")==true){
+				$("a[href='http://www.google.com']").prop('href', 'https://idp.test.org/idp/profile/SAML2/Unsolicited/SSO?providerId=https%3A%2F%2Fsp.test.org%2Fshibboleth&target=https%3A%2F%2Fsp.test.ccgo.org%2Fapplist')
+			} else {
+				$("a[href='http://www.google.com']").prop('href', 'https://idp.test.org/idp/profile/SAML2/Unsolicited/SSO?providerId=https%3A%2F%2Fsp.test.org%2Fshibboleth&target=https%3A%2F%2Fsp.test.org%2Fapplist')
+			}
+        });
+
+		</script>
+		
+    </head>
+<body>
+	<div id="wrapper" class="clearfix">
+      <div id="container" class="clearfix">
+		<header>
+          <img src="osdp_app_list_files/banner_smartcity_1.jpg" alt="Replace or remove this logo" class="header_banner">
+		      <img alt="香港特別行政區政府,政府資訊科技總監辦公室" src="osdp_app_list_files/logo-main-tc.png" class="header-logo__long">
+        </header>
+        <div id="sidebar" class="clearfix">
+			<ul class="menu">
+				<li><a href="#" target="" class="selected">Menu</a></li>
+				<li><a href="#" target="">Selection 1</a></li>
+				<li><a href="#" target="">Selection 2</a></li>
+				<li><a href="#" target="">Selection 3</a></li>
+				<li><a href="#" target="">Selection 4</a></li>
+				<li><a href="#" target="">Selection 5</a></li>
+				<li><a href="#" target="">Selection 6</a></li>
+				<li><a href="#" target="">Selection 7</a></li>
+			</ul>
+		</div>
+		<div id="content" class="clearfix" style="height: 352px;">
+			<form class="form form--user">
+				<div class="container" class="clearfix">
+					<h1 class="page-title" style="padding-top: 25px;">Main Page</h1>
+					<div style="text-align:right">
+					
+						<a class="btn btn-common" href="http://www.google.com">App. List</a>
+										
+					</div>
+					<div style="padding-top: 25px;">
+						<p>This is a sample startup page for B/D. B/D can customize the look and feel of this page to suit their purpose.</p>
+					</div>
+				</div>
+			</form>
+		</div>
+      <footer>
+        <div class="container container-footer">
+			<div class="footer__bottom">
+					<div class="footer__logos">
+						<a id="wcagLogo" href="http://www.w3.org/WAI/WCAG2AA-Conformance" rel="external" class="footer__logo" title="遵守2A級無障礙圖示，萬維網聯盟（W3C）- 無障礙網頁倡議（WAI） Web Content Accessibility Guidelines 2.0" target="_blank"><img src="osdp_app_list_files/img-footer-logo-1.png" alt="遵守2A級無障礙圖示，萬維網聯盟（W3C）- 無障礙網頁倡議（WAI） Web Content Accessibility Guidelines 2.0"></a>
+						<a href="http://www.ipv6forum.com/" rel="external" class="footer__logo" title="IPv6 電腦器材可瀏覽本網站" target="_blank"><img src="osdp_app_list_files/img-footer-logo-2.png" alt="IPv6 電腦器材可瀏覽本網站"></a>
+						<a href="https://www.ogcio.gov.hk/tc/our_work/community/web_mobileapp_accessibility/nurturing_expertise/recognition_scheme/index.html" rel="external" class="footer__logo" title="無障礙網頁嘉許計劃" target="_blank"><img src="osdp_app_list_files/img-footer-logo-3.png" alt="無障礙網頁嘉許計劃"></a>
+						<a href="http://www.erb.org/md/tc/Main/" rel="external" class="footer__logo" title="僱員再培訓局計劃" target="_blank"><img src="osdp_app_list_files/img-footer-logo-7.png" alt="僱員再培訓局計劃"></a>
+						<a href="http://www.caringcompany.org.hk/" rel="external" class="footer__logo" title="caringorganisation 同心展關懷" target="_blank"><img src="osdp_app_list_files/img-footer-logo-4.png" alt="caringorganisation 同心展關懷"></a>
+						<a href="http://www.brandhk.gov.hk/index.html" rel="external" class="footer__logo" title="香港品牌形象 - 亞洲國際都會" target="_blank"><img src="osdp_app_list_files/img-footer-logo-5.png" alt="香港品牌形象 - 亞洲國際都會"></a>
+					</div>
+					<div class="footer__copyright"><span>2018 © 政府資訊科技總監辦公室</span><span class="footer__bottom-sp">|</span><span>覆檢日期： </span><span id="revisionDate">27 July 2018</span></div>
+			</div>        
+		</div>
+      </footer>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:body>
+    <f:view contracts="#{resourceBundle['osdp.theme']}">
+      <ui:composition template="/template/template.xhtml">
+        <ui:param name="title" value="#{resourceBundle['otp.login.title']}"/>
+        <ui:define name="content">
+          <div class="idp-otp-content">
+            <script type="text/javascript">
+              <!--//--><![CDATA[//><!--
+              var buttonPressed = false;
+
+              function login() {
+                if (buttonPressed) return;
+
+                buttonPressed = true;
+
+                var fromForm = document.inputForm;
+                var toForm = document.submitForm;
+
+                toForm['otp'].value = fromForm['inputForm:otp'].value;
+                toForm['submitForm:submitButton'].click();
+              }
+
+              function regenerate() {
+                if (buttonPressed) return;
+
+                buttonPressed = true;
+
+                document.regenerateForm['regenerateForm:submitButton'].click();
+              }
+              //--><!]]>
+            </script>
+
+            <c:if test="#{not empty eventContext and not empty eventContext.event}">
+              <c:set var="message" value="#{resourceBundle['otp.email.'.concat(eventContext.event).concat('.message')]}"/>
+            </c:if>
+
+            <c:if test="#{not empty message}">
+              <div class="idp-login-err-msg">
+                <h:outputText value="#{message}" escape="false"/>
+              </div>
+            </c:if>
+
+            <c:set var="serviceName" value="#{rpUIContext.serviceName}"/>
+            <c:if test="#{not empty serviceName and not profileRequestContext.getSubcontext('net.shibboleth.idp.profile.context.RelyingPartyContext').getRelyingPartyId().contains(serviceName)}">
+              <div class="idp-login-service-legend">
+                <h:outputText value="#{resourceBundle['otp.login.login.to.prefix']}" escape="false"/>
+                <span class="idp-login-service-name">#{serviceName}</span>
+                <h:outputText value="#{resourceBundle['otp.login.login.to.suffix']}" escape="false"/>
+              </div>
+            </c:if>
+
+            <h:form id="inputForm">
+              <div class="idp-otp-login-form-label">
+                <h:outputText value="#{resourceBundle['otp.login.reference.label']}" escape="false"/>
+              </div>
+              <div class="idp-otp-login-form-input">
+                #{authenticationContext.getSubcontext('hk.gov.ogcio.osdp.idp.authn.otp.context.OTPContext').reference}
+              </div>
+              <div class="idp-otp-login-form-label">
+                <h:outputLabel id="otpLabel" for="otp" value="#{resourceBundle['otp.login.otp.label']}" escape="false"/>*
+              </div>
+              <div class="idp-otp-login-form-input">
+                <h:inputText id="otp" size="30" maxlength="50" value="">
+                  <f:passThroughAttribute name="placeholder" value="#{resourceBundle['otp.login.otp.placeholder']}"/>
+                </h:inputText>
+                <a href="#" onclick="regenerate();return false;"><h:outputText value="#{resourceBundle['otp.login.resend.otp.text']}" escape="false"/></a>
+              </div>
+              <div class="idp-otp-login-button">
+                <h:commandButton type="button" value="#{resourceBundle['otp.login.submit.button.text']}" onclick="login()"/>
+              </div>
+            </h:form>
+
+            <h:form id="submitForm" style="display:none;">
+              <input type="hidden" id="otp" name="otp"/>
+              <h:commandButton id="submitButton" action="proceed"/>
+            </h:form>
+
+            <h:form id="regenerateForm" style="display:none;">
+              <h:commandButton id="submitButton" action="regenerate"/>
+            </h:form>
+          </div>
+        </ui:define>
+      </ui:composition>
+    </f:view>
+  </h:body>
+</html>

@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:body>
+    <f:view contracts="#{resourceBundle['osdp.theme']}">
+      <ui:composition template="/template/template.xhtml">
+        <ui:param name="title" value="#{resourceBundle['idp.logout.title']}"/>
+        <ui:define name="content">
+          <div class="idp-logout-content">
+            <c:if test="#{not empty logoutContext and not logoutContext.sessionMap.isEmpty()}">
+              <script type="text/javascript">
+                <!--//--><![CDATA[//><!--
+                var buttonPressed = false;
+
+                window.addEventListener('load', function() {
+                  setTimeout(function() {
+                    if (buttonPressed) return;
+
+                    buttonPressed = true;
+
+                    location.href = "#{flowExecutionUrl}&_eventId=propagate&javax.faces.ViewState=dummy";
+                  }, 10000);
+                });
+
+                function propagate() {
+                  if (buttonPressed) return;
+
+                  buttonPressed = true;
+
+                  document.propagateForm['propagateForm:submitButton'].click();
+                }
+
+                function end() {
+                  if (buttonPressed) return;
+
+                  buttonPressed = true;
+
+                  document.endForm['endForm:submitButton'].click();
+                }
+                //--><!]]>
+              </script>
+            </c:if>
+
+            <c:choose>
+              <c:when test="#{not empty logoutContext and not logoutContext.sessionMap.isEmpty()}">
+                <p><h:outputText value="#{resourceBundle['idp.logout.ask']}" escape="false"/></p>
+                <br/>
+
+                <h:form id="inputForm">
+                  <h:commandButton id="propagate_yes" type="button" value="Yes" onclick="propagate()"/>
+                  <h:commandButton id="propagate_no" type="button" value="No" onclick="end()"/>
+                </h:form>
+
+                <br/>
+                <p><h:outputText value="#{resourceBundle['idp.logout.contactServices']}" escape="false"/></p>
+                <ol class="idp-logout-sp-list">
+                  <c:forEach var="sp" items="#{logoutContext.sessionMap.keySet()}">
+                    <c:set var="rpCtx" value="#{multiRPContext.getRelyingPartyContextById(sp)}"/>
+                    <c:if test="#{not empty rpCtx}">
+                      <c:set var="rpUIContext" value="#{rpCtx.getSubcontext('net.shibboleth.idp.ui.context.RelyingPartyUIContext')}"/>
+                    </c:if>
+                    <c:choose>
+                      <c:when test="#{not empty rpUIContext and not empty rpUIContext.serviceName}">
+                        <li class="idp-logout-sp-list-item">#{rpUIContext.serviceName}</li>
+                      </c:when>
+                      <c:otherwise>
+                        <li class="idp-logout-sp-list-item">#{sp}</li>
+                      </c:otherwise>
+                    </c:choose>
+                  </c:forEach>
+                </ol>
+
+                <h:form id="propagateForm" style="display:none;">
+                  <h:commandButton id="submitButton" action="propagate"/>
+                </h:form>
+
+                <h:form id="endForm" style="display:none;">
+                  <h:commandButton id="submitButton" action="end"/>
+                </h:form>
+              </c:when>
+              <c:otherwise>
+                <p><h:outputText value="#{resourceBundle['idp.logout.complete']}" escape="false"/></p>
+                <!-- Complete the flow by adding a hidden iframe. -->
+                <iframe style="display:none" src="#{flowExecutionUrl}&amp;_eventId=proceed&amp;javax.faces.ViewState=dummy"></iframe>
+              </c:otherwise>
+            </c:choose>
+          </div>
+        </ui:define>
+      </ui:composition>
+    </f:view>
+  </h:body>
+</html>

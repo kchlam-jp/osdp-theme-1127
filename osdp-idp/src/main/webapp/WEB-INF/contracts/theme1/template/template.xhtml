@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <f:view>
+    <h:head>
+      <ui:insert name="metadata" />
+      <meta charset="utf-8" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="cache-control" content="no-cache" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <title>#{title}</title>
+
+      <h:outputStylesheet library="osdp" name="css/admin.css"/>
+      <h:outputStylesheet library="osdp" name="css/main.css"/>
+      <h:outputStylesheet library="osdp" name="css/leftmenu.css"/>
+      <h:outputStylesheet library="osdp" name="css/style.css"/>
+      <h:outputStylesheet library="osdp" name="css/cus.css"/>
+      <h:outputStylesheet library="osdp" name="css/idp.css"/>
+    </h:head>
+    <h:body>
+      <div id="wrapper" class="clearfix">
+        <div id="container" class="clearfix">
+          <div id="header">
+            <ui:include src="header.xhtml" />
+          </div>
+          <div id="main-content-container">
+            <div id="content" class="clearfix center">
+              <div class="center-container">
+                <div class="form-horizontal center-block md">
+                  <ui:insert name="content" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div id="footer">
+              <ui:include src="footer.xhtml" />
+            </div>
+          </footer>
+        </div>
+      </div>
+    </h:body>
+  </f:view>
+</html>

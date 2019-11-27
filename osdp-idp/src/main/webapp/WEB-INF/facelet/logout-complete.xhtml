@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:body>
+    <f:view contracts="#{resourceBundle['osdp.theme']}">
+      <ui:composition template="/template/template.xhtml">
+        <ui:param name="title" value="#{resourceBundle['idp.logout.title']}"/>
+        <ui:define name="content">
+          <div class="idp-logout-content">
+            <p><h:outputText value="#{resourceBundle['idp.logout.local']}" escape="false"/></p>
+
+            <!-- If SAML logout, complete the flow by adding a hidden iframe. -->
+            <c:if test="#{profileRequestContext.profileId.contains('saml2/logout')}">
+              <iframe style="display:none" src="#{flowExecutionUrl}&amp;_eventId=proceed&amp;javax.faces.ViewState=dummy"></iframe>
+            </c:if>
+          </div>
+        </ui:define>
+      </ui:composition>
+    </f:view>
+  </h:body>
+</html>

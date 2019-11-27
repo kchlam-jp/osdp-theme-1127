@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <f:view>
+    <h:head>
+      <ui:insert name="metadata" />
+      <meta charset="utf-8" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="cache-control" content="no-cache" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <title>#{title}</title>
+
+      <h:outputStylesheet library="osdp" name="css/dplogin.css"/>
+      <h:outputStylesheet library="osdp" name="css/idp.css"/>
+    </h:head>
+    <h:body>
+      <div class="main-wrapper">
+        <div id="header-logo-container">
+          <div class="header-logo" title="香港特別行政區政府,政府資訊科技總監辦公室"></div>
+        </div>
+        <span class="header-title">Departmental Portal</span>
+        <div id="main-content-container">
+          <div id="login-content-container">
+            <ui:insert name="content" />
+            <div class="form-footer">
+              <a href="https://www.ogcio.gov.hk/tc/our_work/community/web_mobileapp_accessibility/nurturing_expertise/recognition_scheme/index.html"
+                rel="external" class="form-image img-web-for-all align-left" title="無障礙網頁嘉許計劃"
+                target="_blank"></a>
+              <a id="wcagLogo" href="http://www.w3.org/WAI/WCAG2AA-Conformance"
+                rel="external" class="form-image img-w3c"
+                title="遵守2A級無障礙圖示，萬維網聯盟（W3C）- 無障礙網頁倡議（WAI） Web Content Accessibility Guidelines 2.0"
+                target="_blank"></a>
+              <a href="http://www.brandhk.gov.hk/index.html" rel="external"
+                class="form-image img-brandhk align-right" title="香港品牌形象 - 亞洲國際都會" target="_blank"></a>
+            </div>
+          </div>
+          <div id="image-content-container">
+            <h:graphicImage id="login-image" name="img/login.jpg" library="osdp" alt="Replace or remove this logo" />
+          </div>
+        </div>
+      </div>
+    </h:body>
+  </f:view>
+</html>

@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:body>
+    <f:view contracts="#{resourceBundle['osdp.theme']}">
+      <ui:composition template="/template/template.xhtml">
+        <ui:param name="title" value="#{resourceBundle['password.login.title']}"/>
+        <ui:define name="content">
+          <div class="idp-login-content">
+            <script type="text/javascript">
+              <!--//--><![CDATA[//><!--
+              var buttonPressed = false;
+
+              function login() {
+                if (buttonPressed) return;
+
+                buttonPressed = true;
+
+                var fromForm = document.inputForm;
+                var toForm = document.submitForm;
+
+                toForm['j_username'].value = fromForm['inputForm:username'].value;
+                toForm['j_password'].value = fromForm['inputForm:password'].value;
+                toForm['submitForm:loginButton'].click();
+              }
+              //--><!]]>
+            </script>
+
+            <c:choose>
+              <c:when test="#{not empty authenticationErrorContext and not empty authenticationErrorContext.classifiedErrors and authenticationErrorContext.classifiedErrors.iterator().next() != 'ReselectFlow'}">
+                <c:set var="eventId" value="#{authenticationErrorContext.classifiedErrors.iterator().next()}"/>
+                <c:set var="eventKey" value="#{resourceBundle[eventId]}"/>
+                <c:set var="message" value="#{resourceBundle[eventKey.concat('.message')]}"/>
+              </c:when>
+              <c:when test="#{not empty authenticationErrorContext and not empty authenticationErrorContext.exceptions}">
+                <c:set var="loginException" value="#{authenticationErrorContext.exceptions.get(0)}"/>
+                <c:choose>
+                  <c:when test="#{not empty loginException.message}">
+                    <c:set var="message" value="Login Failure: #{loginException.message}"/>
+                  </c:when>
+                  <c:otherwise>
+                    <c:set var="message" value="#{loginException.toString()}"/>
+                  </c:otherwise>
+                </c:choose>
+              </c:when>
+            </c:choose>
+
+            <c:if test="#{not empty message}">
+              <div class="idp-login-err-msg">
+                <h:outputText value="#{message}" escape="false"/>
+              </div>
+            </c:if>
+
+            <c:set var="serviceName" value="#{rpUIContext.serviceName}"/>
+            <c:if test="#{not empty serviceName and not profileRequestContext.getSubcontext('net.shibboleth.idp.profile.context.RelyingPartyContext').getRelyingPartyId().contains(serviceName)}">
+              <div class="idp-login-service-legend">
+                <h:outputText value="#{resourceBundle['password.login.login.to.prefix']}" escape="false"/>
+                <span class="idp-login-service-name">#{serviceName}</span>
+                <h:outputText value="#{resourceBundle['password.login.login.to.suffix']}" escape="false"/>
+              </div>
+            </c:if>
+
+            <h:form id="inputForm">
+              <div class="idp-login-form-label">
+                <h:outputLabel id="usernameLabel" for="username" value="#{resourceBundle['password.login.username.label']}" escape="false"/>*
+              </div>
+              <div class="idp-login-form-input">
+                <h:inputText id="username" size="30" maxlength="50" value="#{authenticationContext.getSubcontext('net.shibboleth.idp.authn.context.UsernamePasswordContext', true).username}">
+                  <f:passThroughAttribute name="placeholder" value="#{resourceBundle['password.login.username.placeholder']}"/>
+                </h:inputText>
+              </div>
+              <div class="idp-login-form-label">
+                <h:outputLabel id="passwordLabel" for="password" value="#{resourceBundle['password.login.password.label']}" escape="false"/>*
+              </div>
+              <div class="idp-login-form-input">
+                <h:inputSecret id="password" size="30" value="">
+                  <f:passThroughAttribute name="placeholder" value="#{resourceBundle['password.login.password.placeholder']}"/>
+                </h:inputSecret>
+              </div>
+              <div class="idp-login-button">
+                <h:commandButton type="button" value="#{resourceBundle['password.login.submit.button.text']}" onclick="login()"/>
+              </div>
+            </h:form>
+
+            <div class="idp-login-forget-password">
+              <h:outputLink value="#{resourceBundle['password.login.forget.password.url']}">
+                <h:outputText value="#{resourceBundle['password.login.forget.password.text']}" escape="false"/>
+              </h:outputLink>
+            </div>
+
+            <h:form id="submitForm" style="display:none;">
+              <input type="hidden" id="j_username" name="j_username"/>
+              <input type="hidden" id="j_password" name="j_password"/>
+              <h:commandButton id="loginButton" action="proceed"/>
+            </h:form>
+          </div>
+        </ui:define>
+      </ui:composition>
+    </f:view>
+  </h:body>
+</html>

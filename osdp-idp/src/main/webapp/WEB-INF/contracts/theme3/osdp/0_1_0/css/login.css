@@ -1,0 +1,159 @@
+* {
+	margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+	line-height: 1.5;
+}
+
+.main-wrapper {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	padding: 15px;
+	position: relative;
+	z-index: 1;
+}
+
+.bg-image {
+	background-image: url("#{resource['osdp:img/login_bg.jpg']}");
+}
+
+.login-wrapper {
+	width: 390px;
+	padding: 80px 55px 30px 55px;
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.login-wrapper form {
+	width: 100%;
+}
+
+.login-wrapper .form-title {
+	width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 35px;
+	display: block;
+}
+
+.login-wrapper input::placeholder {
+	color: #bbb;
+}
+
+.login-wrapper .input-wrapper {
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 25px;
+}
+
+.login-wrapper .button-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 160px;
+	height: 50px;
+	border-radius: 25px;
+	font-size: 14px;
+}
+
+.login-wrapper input[type="text"],
+.login-wrapper input[type="password"] {
+	background-color: transparent;
+	border: none;
+	border-radius: 20px;
+	box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+	font-size: 16px;
+	width: 100%;
+	height: 62px;
+	line-height: 1.2;
+	outline: none;
+	padding: 0 20px 0 23px;
+	transition: 0.3s
+}
+
+.login-wrapper input[type="text"]:focus,
+.login-wrapper input[type="password"]:focus {
+	box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.3);
+}
+
+.login-wrapper button,
+.login-wrapper input[type=button] {
+	padding: 0 20px;
+	min-width: 160px;
+	height: 50px;
+	border: none;
+	border-radius: 25px;
+	box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 1.2;
+	outline: none;
+}
+
+.login-wrapper button:hover,
+.login-wrapper input[type=button]:hover {
+	cursor: pointer;
+	box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.8);
+}
+
+.button-wrapper .sign-in {
+	background-color: #bd59d4;
+	color: #fff;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.button-wrapper .sign-in:hover {
+	background-color: #4b2354;
+	box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
+}
+
+.text-center {
+	text-align: center!important;
+}
+
+.login-wrapper .form-footer {
+	margin-top: 250px;
+}
+
+.login-wrapper .form-footer-image {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 30%;
+	height: 51px;
+	float: left;
+	margin-right: 3%;
+}
+
+.img-web-for-all {
+	background-image: url("#{resource['osdp:img/img-footer-logo-2.png']}");
+}
+
+.img-w3c {
+	background-image: url("#{resource['osdp:img/img-footer-logo-1.png']}");
+}
+
+.img-hkgov {
+	background-image: url("#{resource['osdp:img/img-footer-logo-5.png']}");
+}
+
+
+/* [Responsive] */
+@media (max-width: 480px) {
+	.login-wrapper {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}

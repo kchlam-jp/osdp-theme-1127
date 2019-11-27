@@ -1,0 +1,1 @@
+The IDP Send URLs are hardcoded in line 25 and 27 of index.html

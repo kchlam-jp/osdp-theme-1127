@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:body>
+    <f:view contracts="#{resourceBundle['osdp.theme']}">
+      <ui:composition template="/template/template.xhtml">
+        <ui:param name="title" value="#{resourceBundle['otp.login.title']}"/>
+        <ui:define name="content">
+          <div class="idp-otp-content">
+            <script type="text/javascript">
+              <!--//--><![CDATA[//><!--
+              var buttonPressed = false;
+
+              function send() {
+                if (buttonPressed) return;
+
+                buttonPressed = true;
+
+                var fromForm = document.inputForm;
+                var toForm = document.submitForm;
+
+                toForm['username'].value = fromForm['inputForm:username'].value;
+                toForm['emailAddress'].value = fromForm['inputForm:emailAddress'].value;
+                toForm['submitForm:submitButton'].click();
+              }
+              //--><!]]>
+            </script>
+
+            <c:if test="#{not empty eventContext and not empty eventContext.event}">
+              <c:set var="message" value="#{resourceBundle['otp.email.'.concat(eventContext.event).concat('.message')]}"/>
+            </c:if>
+
+            <c:if test="#{not empty message}">
+              <div class="idp-login-err-msg">
+                <h:outputText value="#{message}" escape="false"/>
+              </div>
+            </c:if>
+
+            <c:set var="serviceName" value="#{rpUIContext.serviceName}"/>
+            <c:if test="#{not empty serviceName and not profileRequestContext.getSubcontext('net.shibboleth.idp.profile.context.RelyingPartyContext').getRelyingPartyId().contains(serviceName)}">
+              <div class="idp-login-service-legend">
+                <h:outputText value="#{resourceBundle['otp.login.login.to.prefix']}" escape="false"/>
+                <span class="idp-login-service-name">#{serviceName}</span>
+                <h:outputText value="#{resourceBundle['otp.login.login.to.suffix']}" escape="false"/>
+              </div>
+            </c:if>
+
+            <h:form id="inputForm">
+              <div class="idp-otp-email-form-label">
+                <h:outputLabel id="usernameLabel" for="username" value="#{resourceBundle['otp.login.username.label']}" escape="false"/>*
+              </div>
+              <div class="idp-otp-email-form-input">
+                <h:inputText id="username" size="30" maxlength="50" value="#{authenticationContext.getSubcontext('hk.gov.ogcio.osdp.idp.authn.otp.context.EmailAddressContext', true).username}">
+                  <f:passThroughAttribute name="placeholder" value="#{resourceBundle['otp.login.username.placeholder']}"/>
+                </h:inputText>
+              </div>
+              <div class="idp-otp-email-form-label">
+                <h:outputLabel id="emailAddressLabel" for="emailAddress" value="#{resourceBundle['otp.login.email.label']}" escape="false"/>*
+              </div>
+              <div class="idp-otp-email-form-input">
+                <h:inputText id="emailAddress" size="30" maxlength="50" value="#{authenticationContext.getSubcontext('hk.gov.ogcio.osdp.idp.authn.otp.context.EmailAddressContext', true).emailAddress}">
+                  <f:passThroughAttribute name="placeholder" value="#{resourceBundle['otp.login.email.placeholder']}"/>
+                </h:inputText>
+              </div>
+              <div class="idp-otp-email-button">
+                <h:commandButton type="button" value="#{resourceBundle['otp.login.send.otp.button.text']}" onclick="send()"/>
+              </div>
+            </h:form>
+
+            <h:form id="submitForm" style="display:none;">
+              <input type="hidden" id="username" name="username"/>
+              <input type="hidden" id="emailAddress" name="emailAddress"/>
+              <h:commandButton id="submitButton" action="proceed"/>
+            </h:form>
+          </div>
+        </ui:define>
+      </ui:composition>
+    </f:view>
+  </h:body>
+</html>

@@ -1,0 +1,179 @@
+.btn.btn-default {
+	font-family: robotomedium;
+}
+
+.menu li a {
+	font-family: "robotoregular", 'Helvetica', 'Arial', 'sans-serif', 'Microsoft JhengHei', 'MingLiU' !important;
+}
+.form-group table label {	
+/* radio button */
+	margin-right: 15px;
+}
+
+.form-horizontal .form-group.row {
+	margin-bottom: 30px;
+}
+
+.ui-radiobutton .ui-state-active .ui-icon, 
+.ui-radiobutton .ui-button:active .ui-icon {
+	background-image: none;
+}
+
+/*----------User list----------*/
+div.ui-datatable.usersTable {
+	width: 802px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+div.ui-datatable .ui-widget-content a {
+	color: #3d53b3;
+	text-decoration: underline;
+}
+
+div.ui-datatable .ui-widget-content a:hover {
+	color: #2a397a;
+	text-decoration: none;
+}
+
+div.ui-datatable .ui-datatable-odd {
+	background: #fafafb;
+}
+
+div.ui-datatable span.ui-icon {
+	height: 14px !important;
+}
+
+div.ui-datatable tr {
+	height: 45px;	
+}
+
+div.ui-datatable tr:hover {
+	background: #fff4d4;
+}
+
+div.ui-datatable .ui-commandlink {
+	font-size: 0.875rem;
+}
+
+div.ui-datatable select {
+	padding: 0.2em;
+}
+
+/*------------Dialog------------*/
+/*
+div.ui-dialog {
+    margin: auto;
+    bottom: 0px;
+    right: 0px;
+    width: fit-content !important;
+    height: fit-content !important;
+}
+*/
+
+.ui-dialog .ui-dialog-titlebar {
+	background-color: #ffc107;
+	color: black;
+}
+
+/*
+.ui-dialog .ui-dialog-buttonpane .ui-confirmdialog-yes {
+	color: #fff;
+    border-color: #516ad0;
+    background-color: #5f79e0;
+    font-family: "robotomedium", 'Helvetica', 'Arial', 'sans-serif', 'Microsoft JhengHei', 'MingLiU';
+}
+*/
+
+.ui-dialog .ui-button .ui-icon {
+    background-image: url(images/ui-icons_ffffff_256x240.png);
+}
+
+/*
+.ui-dialog .ui-button.ui-state-hover {
+	color: white;
+}
+*/
+
+/*------------Login Page------------*/
+#loginForm {
+	width: 100%;
+	padding: 20px;
+}
+
+#loginForm label {
+	width: 120px;
+}
+
+
+.ui-datatable-resizable thead th, 
+.ui-datatable-resizable tbody td, 
+.ui-datatable-resizable tfoot td {
+	white-space: pre-wrap;
+} 
+
+/*------------Report--------------*/
+.table-container .flow-root {
+	display: flow-root;
+}
+
+.table-container .form-group.row label {
+	min-width: 100px;
+}
+
+.table-container input {
+	min-width: 210px;
+	max-width: 250px;
+}
+
+.table-container input.ui-state-hover {
+	background-color: #FFF4D4;
+}
+
+.table-container .form-group {
+	min-width: 250px;
+	max-width: 370px;
+	margin-right: 5px;
+}
+
+.table-container .ui-panelgrid .ui-panelgrid-cell {
+	border: none !important;
+	height: 50px;
+}
+
+.table-container .ui-widget-content {
+	border: none;
+}
+/*
+.table-container .ui-state-active,
+.table-container .ui-widget-content .ui-state-active, 
+.table-container .ui-widget-header .ui-state-active, 
+.table-container a.ui-button:active, .ui-button:active, 
+.table-container .ui-button.ui-state-active:hover {
+	border: 1px solid #003eff !important;
+    background: #007fff !important;
+    color: #ffffff !important;
+}
+
+.ui-selectonemenu .ui-selectonemenu-label {
+	padding-right: 10px;
+}
+*/
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+	width: 32px;
+}
+
+.btn.btn-submit {
+	color: #fff !important;
+    border-color: #516ad0 !important;
+    background-color: #5f79e0 !important;
+}
+
+.btn.btn-submit.ui-state-hover {
+    color: inherit !important;
+    border: 1px solid #f6c736 !important;
+    background-color: #fed350 !important;
+    color: #000 !important;
+}
+

@@ -1,0 +1,185 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: Arial,Helvetica,sans-serif;
+	outline: none;
+}
+
+body {
+	background: #eee;
+}
+
+.main-wrapper {
+	width: 100%;
+	height: 100vh;
+	padding: 5px 5px 5px 5px;
+	min-width: 480px;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+#header-logo-container {
+	width: 100%;
+	height: 70px;
+	display: inline-block;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+.header-logo {
+	background-image: url("#{resource['osdp:img/logo-main-tc.png']}");
+    background-position: center;
+    background-repeat: no-repeat;
+	background-color: transparent;
+	width: 100%;
+    height: 100%;
+}
+
+.header-title {
+	background-image: url("#{resource['osdp:img/header1_mid.png']}");
+	background-repeat: repeat-x;
+    background-size: 3px 40px;
+    color: #fff;
+	display: inline-block;
+    font-size: 130%;
+    font-weight: bold;
+	width: 100%;
+    height: auto;
+	text-align: center;
+    line-height: 40px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+#main-content-container {
+	width: 100%;
+	display: flex;
+	padding-bottom: 15px;
+	max-height: 550px;
+	min-height: 315px;
+}
+
+#login-content-container,
+#image-content-container {
+	width: 50%;
+	position: relative;
+}
+
+#login-content-container input {
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 5px 15px;
+	font-size: 100%;
+	line-height: 1.2;
+}
+
+#login-content-container input:hover,
+#login-content-container input:focus {
+	border-color: #4d90fe;
+}
+
+#login-content-container button {
+	background-image: url("#{resource['osdp:img/btn_02_all.png']}");
+	background-color: transparent;
+	background-size: 180px 76px;
+	border: none;
+	cursor: pointer;
+	font-size: 100%;
+	font-weight: bold;
+	height: 38px;
+	margin: 5px 0;
+	text-align: center;
+	width:180px;
+	color: #fff;
+}
+
+#login-content-container button:hover {
+	background-position-y:
+	-38px;
+}
+
+.form-title {
+	background-image: url("#{resource['osdp:img/header2_mid.png']}")
+	background-repeat: repeat-x;
+    color: #3F3430;
+    line-height: 1.5;
+    padding: 5px 15px 5px 15px;
+    font-size: 130%;
+    border-radius: 8px;
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.form-label {
+	font-size: 130%;
+	padding-left: 15px;
+	width: 100%;
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.form-footer {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	text-align: center;
+}
+
+.form-image {
+	width: 30%;
+	margin-right: 2%;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: contain;
+	max-width: 130px;
+	min-height: 40px;
+}
+
+.img-brandhk {
+	background-image: url("#{resource['osdp:img/brandhk.gif']}");
+}
+
+.img-w3c {
+	background-image: url("#{resource['osdp:img/wcag2aa.gif']}");
+	margin-top: 5px;
+}
+
+.img-web-for-all {
+	background-image: url("#{resource['osdp:img/WARS_2014_Web_Gold_wSolgan.png']}");
+}
+
+.align-left {
+	float: left;
+}
+
+.align-right {
+	float: right;
+}
+
+#login-image {
+	width: 100%;
+	height: 100%;
+	padding-left: 10px;
+}
+
+@media screen and (max-width: 480px) {
+	#main-content-container {
+		display: block;
+	}
+	
+	#login-content-container {
+		width: 100%;
+		min-height: 315px;
+		margin-bottom: 15px;
+	}
+	
+	#image-content-container {
+		display: none;
+	}
+	
+}
